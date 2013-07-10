@@ -1,4 +1,4 @@
-if('undefined' == typeof(KeepassAutofill)) {
+if('undefined' === typeof(KeepassAutofill)) {
     var KeepassAutofill = {};
 }
 
@@ -14,18 +14,19 @@ KeepassAutofill.BrowserOverlay = {
         var usernameInput = inputs.username;
         var passwordInput = inputs.password;
 
-        this.getCredentialsForLocation(window.content.document.location, function(username, password) {
-            if(username == null) {
-                this.warnUser('No credentials found for this site =(');
-                return;
-            }
+        this.getCredentialsForLocation(window.content.document.location,
+            function(username, password) {
+                if(username === null) {
+                    this.warnUser('No credentials found for this site =(');
+                    return;
+                }
 
-            usernameInput.value = username;
-            passwordInput.value = password;
+                usernameInput.value = username;
+                passwordInput.value = password;
         });
     },
     logDebug: function(msg) {
-        const console = Components.classes['@mozilla.org/consoleservice;1'].
+        var console = Components.classes['@mozilla.org/consoleservice;1'].
             getService(Components.interfaces.nsIConsoleService);
         console.logStringMessage(msg);
     },
@@ -37,25 +38,31 @@ KeepassAutofill.BrowserOverlay = {
 
         var username;
         var password;
+        var element;
+        var i;
 
-        for(var i = 0; i < forms.length && ('undefined' === typeof(username) || 'undefined' === typeof(password)); i++) {
-            var elements = forms[i].elements;
+        for(i = 0;
+            i < forms.length && ('undefined' === typeof(username) ||
+                'undefined' === typeof(password));
+            i++) {
+                var elements = forms[i].elements;
 
-            if('undefined' === typeof(username)) {
-                var element = elements.namedItem('username');
-                if(element !== null) {
-                    username = element;
+                if('undefined' === typeof(username)) {
+                    element = elements.namedItem('username');
+                    if(element !== null) {
+                        username = element;
+                    }
                 }
-            }
-            if('undefined' === typeof(password)) {
-                var element = elements.namedItem('password');
-                if(element !== null) {
-                    password = element;
+                if('undefined' === typeof(password)) {
+                    element = elements.namedItem('password');
+                    if(element !== null) {
+                        password = element;
+                    }
                 }
-            }
         }
 
-        if('undefined' !== typeof(username) && 'undefined' !== typeof(password)) {
+        if('undefined' !== typeof(username) &&
+           'undefined' !== typeof(password)) {
             return {
                 username: username,
                 password: password,
