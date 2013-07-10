@@ -5,6 +5,7 @@ JSLINT_OPTIONS = \
     --sloppy \
     --white \
     --predef=KeepassAutofill \
+    --predef=Components \
     --vars \
     --plusplus \
     $(NULL)
