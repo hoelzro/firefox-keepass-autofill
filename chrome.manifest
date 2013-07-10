@@ -1,0 +1,5 @@
+content     keepassautofill                 content/
+skin        keepassautofill     class/1.0   skin/
+locale      keepassautofill     en-US       locale/en-US/
+
+overlay chrome://browser/content/browser.xul chrome://keepassautofill/content/browserOverlay.xul

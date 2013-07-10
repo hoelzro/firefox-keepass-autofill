@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet type="text/css" href="chrome://global/skin/" ?>
+
+<!DOCTYPE overlay SYSTEM
+  "chrome://keepassautofill/locale/browserOverlay.dtd">
+
+<overlay id="keepassautofill-browser-overlay"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <script type="application/x-javascript"
+    src="chrome://keepassautofill/content/browserOverlay.js" />
+
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="keepassautofill-string-bundle"
+      src="chrome://keepassautofill/locale/browserOverlay.properties" />
+  </stringbundleset>
+
+  <keyset>
+    <key id='fill-in-form-key' modifiers='accel' keycode='VK_RETURN'
+      oncommand='KeepassAutofill.BrowserOverlay.fillInForm()' />
+  </keyset>
+</overlay>
