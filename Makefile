@@ -5,6 +5,8 @@ JSLINT_OPTIONS = \
     --sloppy \
     --white \
     --predef=KeepassAutofill \
+    --vars \
+    --plusplus \
     $(NULL)
 
 .PHONY: keepass-autofill.xpi
