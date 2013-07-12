@@ -15,14 +15,14 @@ KeepassAutofill.BrowserOverlay = {
         var passwordInput = inputs.password;
 
         this.getCredentialsForLocation(window.content.document.location,
-            function(username, password) {
-                if(username === null) {
+            function(creds) {
+                if(creds === null) {
                     this.warnUser('No credentials found for this site =(');
                     return;
                 }
 
-                usernameInput.value = username;
-                passwordInput.value = password;
+                usernameInput.value = creds.username;
+                passwordInput.value = creds.password;
         });
     },
     logDebug: function(msg) {
@@ -72,6 +72,9 @@ KeepassAutofill.BrowserOverlay = {
         }
     },
     getCredentialsForLocation: function(location, callback) {
-        callback.call(this, 'hoelzro', 'abc123');
+        var keepass     = Components.classes['@hoelz.ro/keepassautofill;1'].createInstance(Components.interfaces.nsIKeepass);
+        var count       = {};
+        var credentials = keepass.getCredentialsForLocation(location, count, []);
+        callback.call(this, credentials[0]);
     },
 };
