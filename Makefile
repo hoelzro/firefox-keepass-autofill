@@ -14,7 +14,8 @@ JSLINT_OPTIONS = \
 
 .PHONY: keepass-autofill.xpi
 
-keepass-autofill.xpi:
+keepass-autofill.xpi: check-vars-set nsIKeepassCredentials.xpt nsIKeepass.xpt
+	mv *.xpt components/
 	rm -f $@
 	zip -r $@ *
 
