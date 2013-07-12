@@ -1,0 +1,8 @@
+#include "nsISupports.idl"
+
+interface nsIKeepassCredentials;
+
+[scriptable, uuid(99e105c6-6ad8-430b-9cc6-48b7bbb8b102)]
+interface nsIKeepass : nsISupports {
+    void getCredentialsForLocation(in AString url, out unsigned long count, [retval, array, size_is(count)] out nsIKeepassCredentials creds);
+};
