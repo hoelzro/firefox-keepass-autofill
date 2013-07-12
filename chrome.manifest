@@ -3,3 +3,11 @@ skin        keepassautofill     class/1.0   skin/
 locale      keepassautofill     en-US       locale/en-US/
 
 overlay chrome://browser/content/browser.xul chrome://keepassautofill/content/browserOverlay.xul
+
+interfaces components/nsIKeepassCredentials.xpt
+contract  @hoelz.ro/keepassautofill-credentials;1 {0897d710-65ca-43fd-adfa-cb0b66555d2e}
+component {0897d710-65ca-43fd-adfa-cb0b66555d2e}  components/nsIKeepassCredentials.js
+
+interfaces components/nsIKeepass.xpt
+contract @hoelz.ro/keepassautofill;1 {99e105c6-6ad8-430b-9cc6-48b7bbb8b102}
+component {99e105c6-6ad8-430b-9cc6-48b7bbb8b102} components/nsIKeepass.js
