@@ -27,7 +27,7 @@ check-vars-set:
 	@[[ ! -z "$(PYTHON2)" ]] 	|| (echo "You need to set PYTHON2 on the command line or in config.mk"; false)
 
 clean:
-	rm -f keepass-autofill.xpi components/*.xpt
+	rm -f keepass-autofill.xpi *.xpt components/*.xpt
 
 lint:
 	jslint $(JSLINT_OPTIONS) content/browserOverlay.js
