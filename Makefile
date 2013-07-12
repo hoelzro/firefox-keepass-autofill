@@ -17,7 +17,7 @@ JSLINT_OPTIONS = \
 keepass-autofill.xpi: check-vars-set nsIKeepassCredentials.xpt nsIKeepass.xpt
 	mv *.xpt components/
 	rm -f $@
-	zip -r $@ *
+	perl -anE 'for(@F) { say if -e }' chrome.manifest | xargs zip -r $@ install.rdf chrome.manifest
 
 %.xpt: %.idl
 	$(PYTHON2) $(GECKO_SDK_PATH)/sdk/bin/typelib.py -o $@ -I $(GECKO_SDK_PATH)/idl $<
