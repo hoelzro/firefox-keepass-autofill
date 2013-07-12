@@ -1,3 +1,5 @@
+include config.mk
+
 JSLINT_OPTIONS = \
     --browser \
     --es5 \
