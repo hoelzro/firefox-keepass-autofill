@@ -1,4 +1,5 @@
 Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
+Components.utils.import("chrome://keepassautofill/content/keepass.jsm");
 
 function KeepassImpl() {
 }
