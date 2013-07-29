@@ -1,9 +1,9 @@
 Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
 
-function Keepass() {
+function KeepassImpl() {
 }
 
-Keepass.prototype = {
+KeepassImpl.prototype = {
     classID: Components.ID('{99e105c6-6ad8-430b-9cc6-48b7bbb8b102}'),
     contractID: '@hoelz.ro/keepassautofill;1',
     classDescription: 'Keepass database',
@@ -20,4 +20,4 @@ Keepass.prototype = {
     },
 };
 
-const NSGetFactory = XPCOMUtils.generateNSGetFactory([Keepass]);
+const NSGetFactory = XPCOMUtils.generateNSGetFactory([KeepassImpl]);
